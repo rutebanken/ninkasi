@@ -15,12 +15,12 @@
  */
 
 import React, { Component } from 'react';
-import Dialog from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import Checkbox from 'material-ui/Checkbox';
+import Dialog from '@mui/material/Dialog';
+import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
 import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import FlatButton from 'material-ui/FlatButton';
+import MenuItem from '@mui/material/MenuItem';
+import Button from '@mui/material/Button';
 import { connect } from 'react-redux';
 import SuppliersActions from 'actions/SuppliersActions';
 import TransportModesPopover from './TransportModesPopover';
@@ -226,14 +226,16 @@ class ModalEditProvider extends Component {
     };
 
     const actions = [
-      <FlatButton
+      <Button
+        variant="text"
         label="Cancel"
         primary={false}
         onClick={() => {
           handleClose();
         }}
       />,
-      <FlatButton
+      <Button
+        variant="text"
         label="Update"
         primary={true}
         onClick={() => {

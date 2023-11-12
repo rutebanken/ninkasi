@@ -15,9 +15,8 @@
  */
 
 import React from 'react';
-import MdRemove from 'material-ui/svg-icons/content/remove';
-import MdAdd from 'material-ui/svg-icons/content/add';
-import IconButton from 'material-ui/IconButton';
+import { Remove, Add } from '@mui/icons-material';
+import IconButton from '@mui/material/IconButton';
 
 class ResponsiblitySetList extends React.Component {
   getResponbilityNameById(id) {
@@ -61,10 +60,10 @@ class ResponsiblitySetList extends React.Component {
               handleAdd(e);
             }}
           >
-            <MdAdd color="#228B22" />
+            <Add color="#228B22" />
           </IconButton>
           <IconButton onClick={this.handleRemoveResponsibilitySet.bind(this)}>
-            <MdRemove color="#cc0000" />
+            <Remove color="#cc0000" />
           </IconButton>
         </div>
       </div>

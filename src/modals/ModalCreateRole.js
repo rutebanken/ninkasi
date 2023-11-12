@@ -15,9 +15,9 @@
  */
 
 import React from 'react';
-import Modal from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
+import Modal from '@mui/material/Dialog';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const initialState = {
   role: {
@@ -45,12 +45,14 @@ class ModalCreateRole extends React.Component {
     const invalidPrivateCode = takenPrivateCodes.indexOf(role.privateCode) > -1;
 
     const actions = [
-      <FlatButton
+      <Button
+        variant="text"
         disabled={invalidPrivateCode}
         label="Close"
         onClick={this.handleOnClose.bind(this)}
       />,
-      <FlatButton
+      <Button
+        variant="text"
         disabled={invalidPrivateCode}
         label="Create"
         onClick={() => handleSubmit(role)}

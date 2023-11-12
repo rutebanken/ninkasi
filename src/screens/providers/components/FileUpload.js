@@ -16,7 +16,7 @@
 
 import React from 'react';
 import Dropzone from 'react-dropzone';
-import Button from 'muicss/lib/react/button';
+import Button from '@mui/material/Button';
 import { Line as Progress } from 'rc-progress';
 
 class FileUpload extends React.Component {

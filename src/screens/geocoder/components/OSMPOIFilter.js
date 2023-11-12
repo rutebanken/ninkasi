@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import Button from '@material-ui/core/Button';
-import TextField from 'material-ui/TextField';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import MdDelete from 'material-ui/svg-icons/action/delete';
-import IconButton from 'material-ui/IconButton';
-import Skeleton from '@material-ui/lab/Skeleton';
-import Grid from '@material-ui/core/Grid';
-import Alert from '@material-ui/lab/Alert';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import IconButton from '@mui/material/IconButton';
+import Skeleton from '@mui/lab/Skeleton';
+import Grid from '@mui/material/Grid';
+import Alert from '@mui/lab/Alert';
 import { useAuth } from '@entur/auth-provider';
 import getApiConfig from 'actions/getApiConfig';
 import './OSMPOIFilter.scss';
@@ -214,7 +213,7 @@ const OSMPOIFilter = () => {
                     </TableCell>
                     <TableCell align="center" padding="none">
                       <IconButton onClick={() => handleDeleteFilter(index)}>
-                        <MdDelete />
+                        <Delete />
                       </IconButton>
                     </TableCell>
                   </TableRow>

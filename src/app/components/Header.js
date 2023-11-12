@@ -16,19 +16,21 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import MdAccount from 'material-ui/svg-icons/action/account-circle';
-import MdHelp from 'material-ui/svg-icons/action/help';
-import MdHistory from 'material-ui/svg-icons/action/history';
-import MdMenu from 'material-ui/svg-icons/navigation/menu';
+import AppBar from '@mui/material/AppBar';
+import IconButton from '@mui/material/IconButton';
+import {
+  MoreVert,
+  AccountCircle,
+  Help,
+  History,
+  Menu
+} from '@mui/icons-material';
+import MenuItem from '@mui/material/MenuItem';
 import AppActions from 'actions/AppActions';
 import SuppliersActions from 'actions/SuppliersActions';
 import { getProvidersEnv, getTheme } from 'config/themes';
 import Logo from './Logo';
+import { MenuList } from '@mui/material';
 
 class Header extends React.Component {
   handleLogout() {
@@ -70,14 +72,14 @@ class Header extends React.Component {
           <IconButton
             onClick={() => this.props.dispatch(AppActions.toggleMenu())}
           >
-            <MdMenu />
+            <Menu />
           </IconButton>
         }
         iconElementRight={
-          <IconMenu
+          <MenuList
             iconButtonElement={
               <IconButton>
-                <MoreVertIcon />
+                <MoreVert />
               </IconButton>
             }
             targetOrigin={{ horizontal: 'right', vertical: 'top' }}
@@ -85,28 +87,28 @@ class Header extends React.Component {
           >
             <MenuItem
               primaryText={'History'}
-              leftIcon={<MdHistory color="#41c0c4" />}
+              leftIcon={<History color="#41c0c4" />}
               style={{ fontSize: 12, padding: 0 }}
               onClick={() => {
                 this.handleShowHistory();
               }}
             />
             <MenuItem
-              leftIcon={<MdHelp color="#41c0c4" />}
+              leftIcon={<Help color="#41c0c4" />}
               href="https://enturas.atlassian.net/wiki/spaces/ROR/pages/682623320/Brukerveiledning+-+Ninkasi"
               target="_blank"
               primaryText="User guide (Norwegian)"
               style={{ fontSize: 12, padding: 0 }}
             />
             <MenuItem
-              leftIcon={<MdAccount color="#41c0c4" />}
+              leftIcon={<AccountCircle color="#41c0c4" />}
               primaryText={`Log out ${username}`}
               onClick={() => {
                 this.handleLogout();
               }}
               style={{ fontSize: 12, padding: 0 }}
             />
-          </IconMenu>
+          </MenuList>
         }
       />
     );

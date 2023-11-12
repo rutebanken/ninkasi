@@ -15,17 +15,16 @@
  */
 
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import Checkbox from 'material-ui/Checkbox';
+import Button from '@material-ui/core/Button';
+import SelectField from '@mui/material/SelectField';
+import MenuItem from '@mui/material/MenuItem';
+import Checkbox from '@mui/material/Checkbox';
 import AdminZoneSearchWrapper from './AdminZoneSearchWrapper';
 import OrganizationRegisterActions, {
   sortBy
 } from 'actions/OrganizationRegisterActions';
-import MdRemove from 'material-ui/svg-icons/content/remove';
-import IconButton from 'material-ui/IconButton';
+import { Remove } from '@mui/icons-material';
+import IconButton from '@mui/material/IconButton';
 import { getEntityClassificationRefString } from 'utils/';
 
 class NewRoleAssignment extends React.Component {
@@ -175,7 +174,7 @@ class NewRoleAssignment extends React.Component {
             ))}
           </select>
           <IconButton onClick={this.handleRemoveEntity.bind(this)}>
-            <MdRemove color="#cc0000" />
+            <Remove color="#cc0000" />
           </IconButton>
         </div>
         <div
@@ -239,14 +238,16 @@ class NewRoleAssignment extends React.Component {
               />
             ))}
           </SelectField>
-          <FlatButton
+          <Button
+            variant="text"
             label="Add"
             style={{ flex: 1 }}
             disabled={!tempEntityClassification.length}
             onClick={() => addNewRoleAssignment(tempEntityType, !negate)}
           />
         </div>
-        <RaisedButton
+        <Button
+          variant="contained"
           label="Add role"
           primary={true}
           disabled={

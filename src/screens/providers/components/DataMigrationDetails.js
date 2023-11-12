@@ -16,16 +16,18 @@
 
 import { connect } from 'react-redux';
 import React from 'react';
-import Button from 'muicss/lib/react/button';
+import Button from '@mui/material/Button';
 import SuppliersActions from 'actions/SuppliersActions';
 import AdvancedFileList from './AdvancedFileList';
-import TextField from 'material-ui/TextField';
+import TextField from '@mui/material/TextField';
 import { sortFiles } from 'utils';
 
-const FaArrowDown = require('react-icons/lib/fa/arrow-down');
-const FaArrowUp = require('react-icons/lib/fa/arrow-up');
-const FaRemove = require('react-icons/lib/fa/arrow-left');
-const FaAdd = require('react-icons/lib/fa/arrow-right');
+import {
+  South as FaArrowDown,
+  East as FaAdd,
+  North as FaArrowUp,
+  West as FaRemove
+} from '@mui/icons-material';
 
 class DataMigrationDetails extends React.Component {
   constructor(props) {

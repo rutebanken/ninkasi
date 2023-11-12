@@ -15,8 +15,8 @@
  */
 
 import React from 'react';
-import AutoComplete from 'material-ui/AutoComplete';
-import Chip from 'material-ui/Chip';
+import AutoComplete from '@mui/material/Autocomplete';
+import Chip from '@mui/material/Chip';
 
 class AdminZoneSearchWrapper extends React.Component {
   getZoneType(type) {

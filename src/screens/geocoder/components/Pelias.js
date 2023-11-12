@@ -16,11 +16,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import Checkbox from 'material-ui/Checkbox';
-import Divider from 'material-ui/Divider';
+import Checkbox from '@mui/material/Checkbox';
+import Divider from '@mui/material/Divider';
 import peliasTasks from 'config/peliasTasks';
 import moment from 'moment';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 import SuppliersActions from 'actions/SuppliersActions';
 import ConfirmDialog from 'modals/ConfirmDialog';
 
@@ -131,7 +131,8 @@ const Pelias = ({ otherStatus, getGraphStatus, executePeliasTask }) => {
         key={'pelias-buttons'}
         style={{ width: '100%', textAlign: 'center' }}
       >
-        <RaisedButton
+        <Button
+          variant="contained"
           primary={true}
           labelStyle={{ fontSize: 12 }}
           onClick={() => handleExecutePelias()}

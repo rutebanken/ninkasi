@@ -18,10 +18,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SupplierActions from 'actions/SuppliersActions';
 import moment from 'moment';
-import UnfoldLess from 'material-ui/svg-icons/navigation/unfold-less';
-import UnfoldMore from 'material-ui/svg-icons/navigation/unfold-more';
-import Popover, { PopoverAnimationVertical } from 'material-ui/Popover';
-import FlatButton from 'material-ui/FlatButton';
+import { UnfoldLess, UnfoldMore } from '@mui/icons-material';
+import Popover from '@mui/material/Popover';
+import Button from '@mui/material/Button';
 
 const containerStyle = {
   display: 'flex',
@@ -87,7 +86,8 @@ class LatestOTPGraphVersions extends React.Component {
 
     return (
       <>
-        <FlatButton
+        <Button
+          variant="text"
           label="OTP graph versions"
           labelPosition="before"
           icon={this.state.showGraphVersions ? <UnfoldLess /> : <UnfoldMore />}
@@ -112,7 +112,6 @@ class LatestOTPGraphVersions extends React.Component {
               showGraphVersions: false
             });
           }}
-          animation={PopoverAnimationVertical}
         >
           <div style={containerStyle}>
             {!streetGraphs || !transitGraphs ? (

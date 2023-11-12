@@ -17,12 +17,10 @@
 import React from 'react';
 import SuppliersActions from 'actions/SuppliersActions';
 import cfgreader from 'config/readConfig';
-import MenuItem from 'material-ui/MenuItem';
-import MdWarning from 'material-ui/svg-icons/alert/warning';
-import Popover from 'material-ui/Popover';
-import MdDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down';
-import FlatButton from 'material-ui/FlatButton';
-import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
+import MenuItem from '@mui/material/MenuItem';
+import { Warning, ArrowDropDown, ArrowRight } from '@mui/icons-material';
+import Popover from '@mui/material/Popover';
+import Button from '@mui/material/Button';
 import { getIconColor, getProvidersEnv, getTheme } from 'config/themes';
 import ConfirmDialog from '../../../modals/ConfirmDialog';
 import { connect } from 'react-redux';
@@ -265,7 +263,7 @@ class AdministrativeActions extends React.Component {
     return (
       <div style={innerContainerStyle}>
         <div>
-          <FlatButton onClick={this.handleGraphOpen.bind(this)}>
+          <Button variant="text" onClick={this.handleGraphOpen.bind(this)}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <div
                 style={{
@@ -279,9 +277,9 @@ class AdministrativeActions extends React.Component {
               >
                 Graph
               </div>
-              <MdDropDown color="#fff" />
+              <ArrowDropDown color="#fff" />
             </div>
-          </FlatButton>
+          </Button>
           <Popover
             open={this.state.graphPopoverOpen}
             anchorEl={this.state.anchorEl}
@@ -314,13 +312,14 @@ class AdministrativeActions extends React.Component {
               title={toolTips.buildCandidateBaseGraphOTP2}
             />
           </Popover>
-          <FlatButton
+          <Button
+            variant="text"
             title={toolTips.fetchOSM}
             labelStyle={{ fontSize: 12, color: '#fff' }}
             label={'Fetch OSM'}
             onClick={this.handleFetchOSM.bind(this)}
           />
-          <FlatButton onClick={this.handleGoogleOpen.bind(this)}>
+          <Button variant="text" onClick={this.handleGoogleOpen.bind(this)}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <div
                 style={{
@@ -334,9 +333,9 @@ class AdministrativeActions extends React.Component {
               >
                 Google
               </div>
-              <MdDropDown color="#fff" />
+              <ArrowDropDown color="#fff" />
             </div>
-          </FlatButton>
+          </Button>
           <Popover
             open={this.state.googlePopoverOpen}
             anchorEl={this.state.anchorEl}
@@ -366,9 +365,9 @@ class AdministrativeActions extends React.Component {
           }}
         />
         <div>
-          <FlatButton onClick={this.handleCleanOpen.bind(this)}>
+          <Button variant="text" onClick={this.handleCleanOpen.bind(this)}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <MdWarning
+              <Warning
                 color={iconColor}
                 style={{ height: '1.1em', width: '1.1em', paddingLeft: 10 }}
               />
@@ -384,16 +383,17 @@ class AdministrativeActions extends React.Component {
               >
                 Clean
               </div>
-              <MdDropDown color="#fff" />
+              <ArrowDropDown color="#fff" />
             </div>
-          </FlatButton>
-          <FlatButton
+          </Button>
+          <Button
+            variant="text"
             title={toolTips.canceAllJobs}
             style={{ transform: 'translateY(-3px)' }}
             labelStyle={{ fontSize: 12, color: '#fff' }}
             label={'Cancel all jobs'}
             icon={
-              <MdWarning
+              <Warning
                 color={iconColor}
                 style={{ height: '1.1em', width: '1.1em' }}
               />
@@ -430,7 +430,7 @@ class AdministrativeActions extends React.Component {
             id="dropdown-clean-all"
             primaryText={'Clean all'}
             style={{ fontSize: '1em' }}
-            rightIcon={<ArrowDropRight />}
+            rightIcon={<ArrowRight />}
             menuItems={[
               <MenuItem
                 primaryText={'All'}

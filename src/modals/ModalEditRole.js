@@ -15,9 +15,9 @@
  */
 
 import React from 'react';
-import Modal from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
+import Modal from '@mui/material/Dialog';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 class ModalEditRole extends React.Component {
   constructor(props) {
@@ -40,8 +40,16 @@ class ModalEditRole extends React.Component {
     const { role, originalRoleName } = this.state;
 
     const actions = [
-      <FlatButton label="Close" onClick={this.props.handleCloseModal} />,
-      <FlatButton label="Update" onClick={() => handleSubmit(role)} />
+      <Button
+        variant="text"
+        label="Close"
+        onClick={this.props.handleCloseModal}
+      />,
+      <Button
+        variant="text"
+        label="Update"
+        onClick={() => handleSubmit(role)}
+      />
     ];
 
     if (!role) return null;

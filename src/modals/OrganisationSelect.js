@@ -15,8 +15,8 @@
  */
 
 import React from 'react';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
+import SelectField from '@mui/material/SelectField';
+import MenuItem from '@mui/material/MenuItem';
 import PropTypes from 'prop-types';
 
 class OrganisationSelect extends React.Component {

@@ -15,11 +15,11 @@
  */
 
 import React from 'react';
-import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
-import Popover, { PopoverAnimationVertical } from 'material-ui/Popover';
-import Checkbox from 'material-ui/Checkbox';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Button from '@material-ui/core/Button';
+import Popover from '@mui/material/Popover';
+import Checkbox from '@mui/material/Checkbox';
 import PropTypes from 'prop-types';
 
 export default class TransportModesPopover extends React.Component {
@@ -49,7 +49,8 @@ export default class TransportModesPopover extends React.Component {
     const { allTransportModes, transportModes } = this.props;
     return (
       <div>
-        <RaisedButton
+        <Button
+          variant="contained"
           label={<span>Generate service links for transport modes</span>}
           onClick={this.handleOpen.bind(this)}
           style={{ marginLeft: 10 }}

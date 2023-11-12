@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import AutoComplete from 'material-ui/AutoComplete';
+import AutoComplete from '@mui/material/AutoComplete';
 
 class NotificationAddZoneRef extends React.Component {
   handleNewRequest({ text, value }) {

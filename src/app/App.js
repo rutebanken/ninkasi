@@ -17,9 +17,7 @@
 import React, { Fragment, useEffect, useMemo } from 'react';
 import cfgreader from 'config/readConfig';
 import Header from './components/Header';
-import { MuiThemeProvider, createTheme } from '@material-ui/core/styles'; // v1.x
-import { MuiThemeProvider as V0MuiThemeProvider } from 'material-ui';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { ThemeProvider, createTheme } from '@mui/material/styles'; // v1.x
 import { connect } from 'react-redux';
 import UtilsActions from 'actions/UtilsActions';
 import roleParser from 'roles/rolesParser';
@@ -27,10 +25,6 @@ import NoAccess from './components/NoAccess';
 import Router from './Router';
 import Menu from './components/Menu';
 import NotificationContainer from './components/NotificationContainer';
-
-const themeV0 = getMuiTheme({
-  /* theme for v0.x */
-});
 
 const MainPage = ({ dispatch, isConfigLoaded, isMenuOpen, auth }) => {
   useEffect(() => {
@@ -52,27 +46,25 @@ const MainPage = ({ dispatch, isConfigLoaded, isMenuOpen, auth }) => {
 
   if (isConfigLoaded && auth.roleAssignments) {
     return (
-      <MuiThemeProvider theme={theme}>
-        <V0MuiThemeProvider muiTheme={themeV0}>
-          <Fragment>
-            <NotificationContainer />
-            <Menu open={isMenuOpen} />
-            <div className="app">
-              <Header />
-              {roleParser.isAdmin(auth.roleAssignments) ? (
-                <Router />
-              ) : (
-                <NoAccess
-                  username={auth.user.name}
-                  handleLogout={() => {
-                    auth.logout({ returnTo: window.location.origin });
-                  }}
-                />
-              )}
-            </div>
-          </Fragment>
-        </V0MuiThemeProvider>
-      </MuiThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Fragment>
+          <NotificationContainer />
+          <Menu open={isMenuOpen} />
+          <div className="app">
+            <Header />
+            {roleParser.isAdmin(auth.roleAssignments) ? (
+              <Router />
+            ) : (
+              <NoAccess
+                username={auth.user.name}
+                handleLogout={() => {
+                  auth.logout({ returnTo: window.location.origin });
+                }}
+              />
+            )}
+          </div>
+        </Fragment>
+      </ThemeProvider>
     );
   } else {
     return null;

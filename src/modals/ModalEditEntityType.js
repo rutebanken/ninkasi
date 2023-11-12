@@ -15,14 +15,13 @@
  */
 
 import React from 'react';
-import Modal from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
+import Modal from '@mui/material/Dialog';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import MdRemove from 'material-ui/svg-icons/content/remove';
-import MdAdd from 'material-ui/svg-icons/content/add';
-import IconButton from 'material-ui/IconButton';
+import MenuItem from '@mui/material/MenuItem';
+import { Remove, Add } from '@mui/icons-material';
+import IconButton from '@mui/material/IconButton';
 
 const initialState = {
   entityType: {
@@ -111,12 +110,14 @@ class ModalEditEntityType extends React.Component {
       entityType.privateCode.length;
 
     const actions = [
-      <FlatButton
+      <Button
+        variant="text"
         disabled={!isSavable}
         label="Close"
         onClick={this.handleOnClose.bind(this)}
       />,
-      <FlatButton
+      <Button
+        variant="text"
         disabled={!isSavable}
         label="Update"
         onClick={() => handleSubmit(entityType)}
@@ -205,10 +206,10 @@ class ModalEditEntityType extends React.Component {
                   this.setState({ isCreatingNewClassification: true })
                 }
               >
-                <MdAdd color="#228B22" />
+                <Add color="#228B22" />
               </IconButton>
               <IconButton onClick={this.handleRemoveClassification.bind(this)}>
-                <MdRemove color="#cc0000" />
+                <Remove color="#cc0000" />
               </IconButton>
             </div>
             {isCreatingNewClassification ? (
@@ -249,7 +250,8 @@ class ModalEditEntityType extends React.Component {
                   value={tempClassification.privateCode}
                   fullWidth={true}
                 />
-                <FlatButton
+                <Button
+                  variant="text"
                   label="Add"
                   style={{ width: '100%' }}
                   disabled={

@@ -15,16 +15,16 @@
  */
 
 import React from 'react';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
 import { connect } from 'react-redux';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '@mui/material/Button';
 import OrganizationRegisterActions from 'actions/OrganizationRegisterActions';
 import NotificationTypeBox from './NotificationTypeBox';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import Fab from '@mui/material/Fab';
+import { Add } from '@mui/icons-material';
 
 class ModalEditNotifications extends React.Component {
   constructor(props) {
@@ -103,12 +103,14 @@ class ModalEditNotifications extends React.Component {
     const updateDisabled = this.shouldUpdateBtnBeDisabled();
 
     const actions = [
-      <FlatButton
+      <Button
+        variant="text"
         label="Cancel"
         style={{ marginLeft: 10 }}
         onClick={handleCloseModal}
       />,
-      <FlatButton
+      <Button
+        variant="text"
         label="Update"
         disabled={updateDisabled}
         style={{ marginLeft: 10 }}
@@ -145,11 +147,9 @@ class ModalEditNotifications extends React.Component {
               </div>
             )}
           </div>
-          <FloatingActionButton mini={true} style={{ margin: 10 }}>
-            <ContentAdd
-              onClick={this.handleAddNewUserNotification.bind(this)}
-            />
-          </FloatingActionButton>
+          <Fab mini={true} style={{ margin: 10 }}>
+            <Add onClick={this.handleAddNewUserNotification.bind(this)} />
+          </Fab>
         </DialogContent>
         <DialogActions>{actions}</DialogActions>
       </Dialog>

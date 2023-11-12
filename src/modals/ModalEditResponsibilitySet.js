@@ -15,14 +15,13 @@
  */
 
 import React from 'react';
-import Modal from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import MdRemove from 'material-ui/svg-icons/content/remove';
-import MdAdd from 'material-ui/svg-icons/content/add';
-import IconButton from 'material-ui/IconButton';
+import Modal from '@mui/material/Dialog';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { Remove, Add } from '@mui/icons-material';
+import IconButton from '@mui/material/IconButton';
 import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
+import MenuItem from '@mui/material/MenuItem';
 import NewRole from './NewRoleAssignment';
 import { getEntityClassificationRefString } from 'utils/';
 import { connect } from 'react-redux';
@@ -150,8 +149,9 @@ class ModalEditResponsibilitySet extends React.Component {
     const isSavable = this.isSavable() && isLegalPrivateCode;
 
     const actions = [
-      <FlatButton label="Close" onClick={handleOnClose} />,
-      <FlatButton
+      <Button variant="text" label="Close" onClick={handleOnClose} />,
+      <Button
+        variant="text"
         disabled={!isSavable}
         label="Update"
         onClick={() => handleSubmit(this.state.responsibilitySet)}
@@ -257,10 +257,10 @@ class ModalEditResponsibilitySet extends React.Component {
               <IconButton
                 onClick={() => this.setState({ isCreatingNewRole: true })}
               >
-                <MdAdd color="#228B22" />
+                <Add color="#228B22" />
               </IconButton>
               <IconButton onClick={this.handleRemoveRole.bind(this)}>
-                <MdRemove color="#cc0000" />
+                <Remove color="#cc0000" />
               </IconButton>
             </div>
             {isCreatingNewRole ? (

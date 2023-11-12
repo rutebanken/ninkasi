@@ -15,7 +15,7 @@
  */
 
 import { connect } from 'react-redux';
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 
 class Modal extends React.Component {
   render() {

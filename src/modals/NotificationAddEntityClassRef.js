@@ -16,8 +16,8 @@
 
 import React from 'react';
 import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '@mui/material/Button';
+import MenuItem from '@mui/material/MenuItem';
 import { connect } from 'react-redux';
 import OrganizationRegisterActions from 'actions/OrganizationRegisterActions';
 
@@ -109,7 +109,8 @@ class NotificationAddEntityClassRef extends React.Component {
             />
           ))}
         </SelectField>
-        <FlatButton
+        <Button
+          variant="text"
           label="Add"
           onClick={this.handleAdd.bind(this)}
           disabled={!this.state.entityClasRefSelected}

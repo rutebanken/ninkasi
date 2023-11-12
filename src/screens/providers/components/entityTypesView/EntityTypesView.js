@@ -17,13 +17,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './entityTypesView.scss';
-import MdEdit from 'material-ui/svg-icons/image/edit';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import { Edit, Add, Delete } from '@mui/icons-material';
+import Fab from '@mui/material/Fab';
 import ModalCreateEntityType from 'modals/ModalCreateEntityType';
-import ModalEditEntiyType from 'modals/ModalEditEntityType';
-import OrganizationRegisterActions from 'actions/OrganizationRegisterActions';
-import MdDelete from 'material-ui/svg-icons/action/delete';
+import ModalEditEntityType from 'modals/ModalEditEntityType';
 import { sortByColumns } from 'utils';
 import ModalConfirmation from 'modals/ModalConfirmation';
 
@@ -133,14 +130,9 @@ class EntityTypesView extends React.Component {
     return (
       <div>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <FloatingActionButton
-            mini={true}
-            style={{ float: 'right', marginRight: 10 }}
-          >
-            <ContentAdd
-              onClick={() => this.setState({ isCreateModalOpen: true })}
-            />
-          </FloatingActionButton>
+          <Fab mini={true} style={{ float: 'right', marginRight: 10 }}>
+            <Add onClick={() => this.setState({ isCreateModalOpen: true })} />
+          </Fab>
         </div>
         <div className="et-row">
           <div className="et-header">
@@ -194,7 +186,7 @@ class EntityTypesView extends React.Component {
                   </ul>
                 </div>
                 <div className="col-icon" style={{ cursor: 'pointer' }}>
-                  <MdDelete
+                  <Delete
                     color="#fa7b81"
                     style={{
                       height: 20,
@@ -205,7 +197,7 @@ class EntityTypesView extends React.Component {
                     }}
                     onClick={() => this.handleOpenDeleteConfirmationDialog(et)}
                   />
-                  <MdEdit
+                  <Edit
                     color="rgba(25, 118, 210, 0.59)"
                     style={{
                       height: 20,
@@ -231,7 +223,7 @@ class EntityTypesView extends React.Component {
             />
           ) : null}
           {this.state.isEditModalOpen ? (
-            <ModalEditEntiyType
+            <ModalEditEntityType
               isModalOpen={this.state.isEditModalOpen}
               entityType={this.state.activeEntityType}
               handleCloseModal={() => this.setState({ isEditModalOpen: false })}

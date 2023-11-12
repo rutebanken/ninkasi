@@ -15,11 +15,11 @@
  */
 
 import React from 'react';
-import Modal from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
+import Modal from '@mui/material/Dialog';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import SelectField from '@mui/material/SelectField';
+import MenuItem from '@mui/material/MenuItem';
 
 const initialState = {
   organization: {
@@ -65,8 +65,13 @@ class ModalEditOrganization extends React.Component {
       this.props.organization.privateCode !== organization.privateCode;
 
     const actions = [
-      <FlatButton label="Cancel" onClick={() => handleCloseModal()} />,
-      <FlatButton
+      <Button
+        variant="text"
+        label="Cancel"
+        onClick={() => handleCloseModal()}
+      />,
+      <Button
+        variant="text"
         disabled={isOrganizationNameTaken || isOrganizationPrivateCodeTaken}
         label="Update"
         onClick={() => handleSubmit(organization)}

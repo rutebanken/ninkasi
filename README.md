@@ -11,7 +11,11 @@ npm install
 npm run start
 ```
 
-Requires `node@14.18.3` and `npm@6.14.15`
+Requires `node@16.17.1` and `npm@8.15.0`
+
+```
+nvm use 16.17.1
+```
 
 ### Production
 

@@ -16,9 +16,9 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import Dialog from '@material-ui/core/Dialog';
+import Dialog from '@mui/material/Dialog';
 import SuppliersActions from 'actions/SuppliersActions';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '@mui/material/Button';
 
 class ModalActionContainer extends React.Component {
   handleFilterChange = event => {
@@ -34,7 +34,8 @@ class ModalActionContainer extends React.Component {
     const { isModalOpen, filteredLoggedEvents } = this.props;
 
     const actions = [
-      <FlatButton
+      <Button
+        variant="text"
         label={'Close'}
         onClick={() => {
           this.closeModal();

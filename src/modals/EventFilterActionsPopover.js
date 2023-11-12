@@ -15,12 +15,12 @@
  */
 
 import React from 'react';
-import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
-import Popover, { PopoverAnimationVertical } from 'material-ui/Popover';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Button from '@material-ui/core/Button';
+import Popover from '@mui/material/Popover';
 import OrganizationRegisterActions from 'actions/OrganizationRegisterActions';
-import Checkbox from 'material-ui/Checkbox';
+import Checkbox from '@mui/material/Checkbox';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -68,7 +68,8 @@ class EventFilterActionsPopover extends React.Component {
 
     return (
       <div>
-        <RaisedButton
+        <Button
+          variant="contained"
           disabled={!enabled && !eventFilter.jobDomain}
           label={
             <span>
@@ -85,7 +86,6 @@ class EventFilterActionsPopover extends React.Component {
           }}
           anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
           targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-          animation={PopoverAnimationVertical}
         >
           {eventFilter.jobDomain &&
             allActions[eventFilter.jobDomain].map((action, i) => {
@@ -97,6 +97,7 @@ class EventFilterActionsPopover extends React.Component {
 
               return (
                 <Menu
+                  open={false}
                   key={'action-' + i}
                   menuItemStyle={{ fontSize: 12, minHeight: 18 }}
                 >

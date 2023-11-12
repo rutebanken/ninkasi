@@ -17,12 +17,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './responsibilityView.scss';
-import MdEdit from 'material-ui/svg-icons/image/edit';
-import MdDelete from 'material-ui/svg-icons/action/delete';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import { Edit, Delete, Add } from '@mui/icons-material';
+import Fab from '@mui/material/Fab';
 import OrganizationRegisterActions from 'actions/OrganizationRegisterActions';
-import ResponsbilityRoleAssignments from 'modals/ResponsbilityRoleAssignments';
+import ResponsibilityRoleAssignments from 'modals/ResponsbilityRoleAssignments';
 import ModalCreateResponsibilitySet from 'modals/ModalCreateResponsibilitySet';
 import ModalEditResponsibilitySet from 'modals/ModalEditResponsibilitySet';
 import { sortByColumns } from 'utils';
@@ -158,13 +156,13 @@ class ResponsibilitiesView extends React.Component {
     return (
       <div>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <FloatingActionButton
+          <Fab
             mini={true}
             style={{ marginRight: 10 }}
             onClick={this.openModalWindow.bind(this)}
           >
-            <ContentAdd />
-          </FloatingActionButton>
+            <Add />
+          </Fab>
         </div>
         <div className="responsibility-row">
           <div className="responsibility-header">
@@ -204,14 +202,14 @@ class ResponsibilitiesView extends React.Component {
                 <div className="col-1-6">{responsibility.id}</div>
                 <div className="col-1-7">{responsibility.privateCode}</div>
                 <div className="col-1-3">
-                  <ResponsbilityRoleAssignments
+                  <ResponsibilityRoleAssignments
                     roleAssignments={responsibility.roles}
                     organizations={organizations}
                     adminZones={administrativeZones}
                   />
                 </div>
                 <div className="col-icon" style={{ cursor: 'pointer' }}>
-                  <MdDelete
+                  <Delete
                     color="#fa7b81"
                     style={{
                       height: 20,
@@ -224,7 +222,7 @@ class ResponsibilitiesView extends React.Component {
                       this.handleOpenDeleteConfirmationDialog(responsibility)
                     }
                   />
-                  <MdEdit
+                  <Edit
                     color="rgba(25, 118, 210, 0.59)"
                     style={{
                       height: 20,

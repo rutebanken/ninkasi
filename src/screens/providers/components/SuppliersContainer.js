@@ -18,13 +18,11 @@ import { connect } from 'react-redux';
 import React from 'react';
 import SuppliersActions from 'actions/SuppliersActions';
 import cfgreader from 'config/readConfig';
-import MenuItem from 'material-ui/MenuItem';
-import SelectField from 'material-ui/SelectField';
-import MdNew from 'material-ui/svg-icons/content/add';
+import MenuItem from '@mui/material/MenuItem';
+import SelectField from '@mui/material/SelectField';
+import { Add, Edit, Delete } from '@mui/icons-material';
 import { getQueryVariable } from 'utils';
 import rolesParser from 'roles/rolesParser';
-import MdEdit from 'material-ui/svg-icons/image/edit';
-import MdDelete from 'material-ui/svg-icons/action/delete-forever';
 import ConfirmDialog from 'modals/ConfirmDialog';
 
 class SuppliersContainer extends React.Component {
@@ -173,7 +171,7 @@ class SuppliersContainer extends React.Component {
                 >
                   {!this.props.displayAllSuppliers && (
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      <MdEdit style={{ width: '1.1em', height: '1.1em' }} />
+                      <Edit style={{ width: '1.1em', height: '1.1em' }} />
                       <span style={{ marginLeft: 2 }}>Edit</span>
                     </div>
                   )}
@@ -188,7 +186,7 @@ class SuppliersContainer extends React.Component {
                   onClick={() => this.handleNewProvider()}
                 >
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <MdNew style={{ width: '1.2em', height: '1.2em' }} />
+                    <Add style={{ width: '1.2em', height: '1.2em' }} />
                     <span style={{ marginLeft: 2 }}>New</span>
                   </div>
                 </div>
@@ -199,7 +197,7 @@ class SuppliersContainer extends React.Component {
                   onClick={() => this.handleOpenConfirmDeleteProviderDialog()}
                 >
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <MdDelete style={{ width: '1.2em', height: '1.2em' }} />
+                    <Delete style={{ width: '1.2em', height: '1.2em' }} />
                     <span style={{ marginLeft: 2 }}>Delete</span>
                   </div>
                 </div>

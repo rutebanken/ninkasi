@@ -15,11 +15,11 @@
  */
 
 import React from 'react';
-import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
-import Popover, { PopoverAnimationVertical } from 'material-ui/Popover';
-import Checkbox from 'material-ui/Checkbox';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Button from '@mui/material/Button';
+import Popover from '@mui/material/Popover';
+import Checkbox from '@mui/material/Checkbox';
 import OrganizationRegisterActions from 'actions/OrganizationRegisterActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -65,7 +65,8 @@ class EventFilterStatesPopover extends React.Component {
 
     return (
       <div>
-        <RaisedButton
+        <Button
+          variant="contained"
           disabled={!enabled}
           label={
             <span>
@@ -83,7 +84,6 @@ class EventFilterStatesPopover extends React.Component {
           }}
           anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
           targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-          animation={PopoverAnimationVertical}
         >
           {allStates.map((state, i) => {
             let checked = states.indexOf(state) > -1;

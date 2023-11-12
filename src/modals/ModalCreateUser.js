@@ -15,12 +15,12 @@
  */
 
 import React from 'react';
-import ModalDialog from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import ResponsiblitySetList from './ResponsiblitySetList';
+import ModalDialog from '@mui/material/Dialog';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import SelectField from '@mui/material/SelectField';
+import MenuItem from '@mui/material/MenuItem';
+import ResponsibilitySetList from './ResponsiblitySetList';
 import UserRespSetPopover from './UserRespSetPopover';
 
 const initialState = {
@@ -165,8 +165,13 @@ class ModalCreateUser extends React.Component {
       emailIsTaken;
 
     const actions = [
-      <FlatButton label="Cancel" onClick={() => this.handleOnClose()} />,
-      <FlatButton
+      <Button
+        variant="text"
+        label="Cancel"
+        onClick={() => this.handleOnClose()}
+      />,
+      <Button
+        variant="text"
         disabled={disableCreate}
         label="Create"
         primary={true}
@@ -295,7 +300,7 @@ class ModalCreateUser extends React.Component {
             }
             open={isAddingResponsibilitySet}
           />
-          <ResponsiblitySetList
+          <ResponsibilitySetList
             user={user}
             responsiblities={responsibilities}
             handleAdd={e =>

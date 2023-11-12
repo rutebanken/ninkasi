@@ -16,8 +16,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import Dialog from '@mui/material/Dialog';
+import Button from '@mui/material/Button';
 
 class ConfirmDialog extends Component {
   handleSubmit() {
@@ -30,13 +30,18 @@ class ConfirmDialog extends Component {
     const { handleClose, open, title, info } = this.props;
 
     const actions = [
-      <FlatButton
+      <Button
+        variant="text"
         label={'Close'}
         onClick={() => {
           handleClose();
         }}
       />,
-      <FlatButton label={'Confirm'} onClick={this.handleSubmit.bind(this)} />
+      <Button
+        variant="text"
+        label={'Confirm'}
+        onClick={this.handleSubmit.bind(this)}
+      />
     ];
 
     return (

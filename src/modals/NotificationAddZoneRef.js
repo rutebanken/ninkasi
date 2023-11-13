@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import AutoComplete from '@mui/material/AutoComplete';
+import { Autocomplete } from '@mui/material';
 
 class NotificationAddZoneRef extends React.Component {
   handleNewRequest({ text, value }) {
@@ -50,7 +50,7 @@ class NotificationAddZoneRef extends React.Component {
         <div
           style={{ display: 'flex', flexDirection: 'column', marginLeft: 10 }}
         >
-          <AutoComplete
+          <Autocomplete
             maxSearchResults={7}
             ref="adminSearch"
             floatingLabelText={'Add administrative zone'}

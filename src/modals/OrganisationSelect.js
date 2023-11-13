@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import SelectField from '@mui/material/SelectField';
+import SelectField from 'material-ui/SelectField';
 import MenuItem from '@mui/material/MenuItem';
 import PropTypes from 'prop-types';
 

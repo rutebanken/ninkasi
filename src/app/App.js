@@ -17,7 +17,6 @@
 import React, { Fragment, useEffect, useMemo } from 'react';
 import cfgreader from 'config/readConfig';
 import Header from './components/Header';
-import { ThemeProvider, createTheme } from '@mui/material/styles'; // v1.x
 import { connect } from 'react-redux';
 import UtilsActions from 'actions/UtilsActions';
 import roleParser from 'roles/rolesParser';
@@ -34,37 +33,25 @@ const MainPage = ({ dispatch, isConfigLoaded, isMenuOpen, auth }) => {
     });
   }, [dispatch]);
 
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          type: 'light'
-        }
-      }),
-    []
-  );
-
   if (isConfigLoaded && auth.roleAssignments) {
     return (
-      <ThemeProvider theme={theme}>
-        <Fragment>
-          <NotificationContainer />
-          <Menu open={isMenuOpen} />
-          <div className="app">
-            <Header />
-            {roleParser.isAdmin(auth.roleAssignments) ? (
-              <Router />
-            ) : (
-              <NoAccess
-                username={auth.user.name}
-                handleLogout={() => {
-                  auth.logout({ returnTo: window.location.origin });
-                }}
-              />
-            )}
-          </div>
-        </Fragment>
-      </ThemeProvider>
+      <Fragment>
+        <NotificationContainer />
+        <Menu open={isMenuOpen} />
+        <div className="app">
+          <Header />
+          {roleParser.isAdmin(auth.roleAssignments) ? (
+            <Router />
+          ) : (
+            <NoAccess
+              username={auth.user.name}
+              handleLogout={() => {
+                auth.logout({ returnTo: window.location.origin });
+              }}
+            />
+          )}
+        </div>
+      </Fragment>
     );
   } else {
     return null;

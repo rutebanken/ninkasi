@@ -19,7 +19,7 @@ import React from 'react';
 import SuppliersActions from 'actions/SuppliersActions';
 import cfgreader from 'config/readConfig';
 import MenuItem from '@mui/material/MenuItem';
-import SelectField from '@mui/material/SelectField';
+import SelectField from 'material-ui/SelectField';
 import { Add, Edit, Delete } from '@mui/icons-material';
 import { getQueryVariable } from 'utils';
 import rolesParser from 'roles/rolesParser';

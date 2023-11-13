@@ -20,7 +20,7 @@ import TextField from '@mui/material/TextField';
 import { Remove, Add } from '@mui/icons-material';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import SelectField from '@mui/material/SelectField';
+import SelectField from 'material-ui/SelectField';
 import MenuItem from '@mui/material/MenuItem';
 import NewRoleAssignment from './NewRoleAssignment';
 import { getEntityClassificationRefString } from 'utils/';

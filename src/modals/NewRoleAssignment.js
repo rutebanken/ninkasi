@@ -16,7 +16,7 @@
 
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import SelectField from '@mui/material/SelectField';
+import SelectField from 'material-ui/SelectField';
 import MenuItem from '@mui/material/MenuItem';
 import Checkbox from '@mui/material/Checkbox';
 import AdminZoneSearchWrapper from './AdminZoneSearchWrapper';
